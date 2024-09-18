@@ -4,11 +4,13 @@ import javax.swing.*;
 import VO.UsuarioVo;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.*;
 
 public class PrincipalViewSCESP extends JFrame{
 
-    ArrayList<UsuarioVo> users = new ArrayList<>();
+    private ArrayList<UsuarioVo> users;
 
     GridBagLayout Layout = new GridBagLayout();
     GridBagConstraints gbc = new GridBagConstraints();
@@ -17,7 +19,22 @@ public class PrincipalViewSCESP extends JFrame{
     int heigth = (int) screensize.getHeight() - 100;
     int widith = (int) screensize.getWidth() ;
 
+        
+
+    public ArrayList<UsuarioVo> getUsers() {
+        return users;
+    }
+
+
+
+    public void setUsers(ArrayList<UsuarioVo> users) {
+        this.users = users;
+    }
+
+
+
     public PrincipalViewSCESP(){
+        users = new ArrayList<>();
         setTitle("SCESP");
         setSize(widith,heigth);
         setLocationRelativeTo(null);
@@ -26,7 +43,8 @@ public class PrincipalViewSCESP extends JFrame{
         JPanel container = new JPanel();
         container.setLayout(cardLayout);
 
-        container.add( new CadastrarPessoa(users),"CadPessoas");
+        container.add( new CadastrarPessoa(this),"CadPessoas");
+        container.add(new ListarPessoasView(this),"ListPessoas");
         
         cardLayout.show(container,"CadPessoas");
 
@@ -42,10 +60,28 @@ public class PrincipalViewSCESP extends JFrame{
         
         JPanel container2 = new JPanel();
         container2.setLayout(new GridLayout(5,1));
+
+
         JButton btn1 = new JButton("Cadastrar Pessoa");
         container2.add(btn1);
-        JButton btn2 = new JButton("botao2");
+        btn1.addActionListener( new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               cardLayout.show(container, "CadPessoas");
+            }
+            
+        });
+        JButton btn2 = new JButton("Listar Pessoar");
         container2.add(btn2);
+        btn2.addActionListener( new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(container, "ListPessoas");
+            }
+            
+        });
         JButton btn3 = new JButton("botao3");
         container2.add(btn3);
         JButton btn4 = new JButton("botao4");

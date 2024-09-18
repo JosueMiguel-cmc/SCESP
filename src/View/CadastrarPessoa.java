@@ -12,14 +12,15 @@ import java.time.*;
 
 public class CadastrarPessoa extends JPanel {
 
-    public CadastrarPessoa( ArrayList<UsuarioVo> User)  {
-        // Configurações gerais
-        setBackground(new Color(5, 5, 5));
+    public CadastrarPessoa(PrincipalViewSCESP PVSCESP)  {
+        // Configurações gerais (so se quiser kkkk) @Josue
+        setBackground(Color.BLACK);
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(10, 10, 10, 10); // Espaçamento entre os componentes
+        gbc.insets = new Insets(10, 10, 10, 10);
+        setVisible(true);
 
-        // Painel de cadastro
+        // Painel de cadastro @Josue
         JPanel areacadastro = new JPanel();
         areacadastro.setBackground(Color.LIGHT_GRAY);
         areacadastro.setPreferredSize(new Dimension(350, 500)); // Tamanho do painel interno
@@ -33,7 +34,7 @@ public class CadastrarPessoa extends JPanel {
         gbc.anchor = GridBagConstraints.CENTER;
         areacadastro.add(nometelaLabel,gbc);
 
-        // Label e Campo de Nome
+        // Label e Campo de Nome @Josue
         JLabel nomeLabel = new JLabel("Nome:");
         JTextField nomeField = new JTextField(20);
 
@@ -45,7 +46,7 @@ public class CadastrarPessoa extends JPanel {
         gbc.gridx = 1;
         areacadastro.add(nomeField, gbc);
 
-        // Label e Campo de Idade
+        // Label e Campo de Idade @Josue
         JLabel idadeLabel = new JLabel("Idade:");
         JTextField idadeField = new JTextField(5);
 
@@ -56,7 +57,7 @@ public class CadastrarPessoa extends JPanel {
         gbc.gridx = 1;
         areacadastro.add(idadeField, gbc);
 
-        // Label e Campo de Gênero
+        // Label e Campo de Gênero @ Josue
         JLabel generoLabel = new JLabel("Gênero:");
         String[] generos = {"Masculino", "Feminino", "Outro"};
         JComboBox<String> generoCombo = new JComboBox<>(generos);
@@ -100,7 +101,15 @@ public class CadastrarPessoa extends JPanel {
                         String senha = JOptionPane.showInputDialog(null,"Insira a senha");
                         if (senha.equals("123456")) {
                             System.out.println("salvo com sucesso");
+                            PVSCESP.getUsers().add(new UsuarioVo(nome, ocupaçao, genero, idade, horariodeentrada, null));
+                            UsuarioVo pessoa = PVSCESP.getUsers().get(0);
+                            System.out.println(pessoa.getNome());
                         }
+                    } else{
+                        System.out.println("salvo com sucesso");
+                            PVSCESP.getUsers().add(new UsuarioVo(nome, ocupaçao, genero, idade, horariodeentrada, null));
+                            UsuarioVo pessoa = PVSCESP.getUsers().get(0);
+                            System.out.println(pessoa.getNome());
                     }
                 }
 
@@ -113,7 +122,7 @@ public class CadastrarPessoa extends JPanel {
         gbc.anchor = GridBagConstraints.CENTER;
         areacadastro.add(salvarButton, gbc);
 
-        // Adicionando o painel centralizado ao painel principal
+        // Adicionando o painel centralizado ao painel principal @Josue
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.CENTER;

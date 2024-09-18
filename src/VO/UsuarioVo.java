@@ -1,17 +1,17 @@
 package VO;
-import java.time.LocalTime;
+import java.time.*;
 public class UsuarioVo {
     private String Nome;
     private String Ocupação;
     private String Genero;
     private int idade;
-    private LocalTime horadeentrada;
-    private LocalTime horadesaida;
+    private LocalDateTime horadeentrada;
+    private LocalDateTime horadesaida;
 
     
 
-    public UsuarioVo(String nome, String ocupação, String genero, int idade, LocalTime horadeentrada,
-            LocalTime horadesaida) {
+    public UsuarioVo(String nome, String ocupação, String genero, int idade, LocalDateTime horadeentrada,
+            LocalDateTime horadesaida) {
         this.Nome = nome;
         this.Ocupação = ocupação;
         this.Genero = genero;
@@ -52,19 +52,19 @@ public class UsuarioVo {
         this.idade = idade;
     }
 
-    public LocalTime getHoradeentrada() {
+    public LocalDateTime getHoradeentrada() {
         return horadeentrada;
     }
 
-    public void setHoradeentrada(LocalTime horadeentrada) {
+    public void setHoradeentrada(LocalDateTime horadeentrada) {
         this.horadeentrada = horadeentrada;
     }
 
-    public LocalTime getHoradesaida() {
+    public LocalDateTime getHoradesaida() {
         return horadesaida;
     }
 
-    public void setHoradesaida(LocalTime horadesaida) {
+    public void setHoradesaida(LocalDateTime horadesaida) {
         this.horadesaida = horadesaida;
     }
 
