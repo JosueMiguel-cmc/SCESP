@@ -5,9 +5,7 @@ import javax.swing.*;
 import VO.UsuarioVo;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.*;
+import java.awt.event.*;
 import java.time.*;
 
 public class CadastrarPessoa extends JPanel {
@@ -88,33 +86,47 @@ public class CadastrarPessoa extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                //area onde vamos inserir o usuario
-                String nome = nomeField.getText().toString();
-                int idade = Integer.parseInt(idadeField.getText()) ;
+                //area onde vamos atribuir os dados do usuario
+                String nome = null;
+                int idade = 0;
                 String genero = (String) generoCombo.getSelectedItem();
                 String ocupaçao = (String) ocupaçaoCombo.getSelectedItem();
-
                 LocalDateTime horariodeentrada = LocalDateTime.now();
 
-                if (idade >= 18) {
-                    if (ocupaçao.equals("Funcionario")) {
-                        String senha = JOptionPane.showInputDialog(null,"Insira a senha");
-                        if (senha.equals("123456")) {
-                            System.out.println("salvo com sucesso");
-                            PVSCESP.getUsers().add(new UsuarioVo(nome, ocupaçao, genero, idade, horariodeentrada, null));
-                            UsuarioVo pessoa = PVSCESP.getUsers().get(0);
-                            System.out.println(pessoa.getNome());
-                        }
-                    } else{
-                        System.out.println("salvo com sucesso");
-                            PVSCESP.getUsers().add(new UsuarioVo(nome, ocupaçao, genero, idade, horariodeentrada, null));
-                            UsuarioVo pessoa = PVSCESP.getUsers().get(0);
-                            System.out.println(pessoa.getNome());
+                //local de vereficaçoes e finalizaçoes
+
+                if (PVSCESP.getUsers().size() >= 19) {
+                    JOptionPane.showMessageDialog(null, "limite de pessoas excedidas");
+                }else{
+                    if (idadeField.getText().isEmpty() || nomeField.getText().isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "por favor preencha todos os campos");
+                    }else{
+                            idade = Integer.parseInt(idadeField.getText());
+                            nome = nomeField.getText().toString();
+                    }
+                    if (idade >= 18) {
+                    
+                        if (ocupaçao.equals("Funcionario")) {
+                                String senha = JOptionPane.showInputDialog(null,"Insira a senha");
+                                if (senha.equals("123456")) {
+                                    System.out.println("salvo com sucesso");
+                                    PVSCESP.getUsers().add(new UsuarioVo(nome, ocupaçao, genero, idade, horariodeentrada, null));
+                                    nomeField.setText(null);
+                                    idadeField.setText(null);
+                                }
+                            } else{
+                                System.out.println("salvo com sucesso");
+                                    PVSCESP.getUsers().add(new UsuarioVo(nome, ocupaçao, genero, idade, horariodeentrada, null));
+                                    nomeField.setText(null);
+                                    idadeField.setText(null);
+                                }
+                    }else {
+                        JOptionPane.showMessageDialog(null, "o usuario deve ser maior de 18 anos");
+                        
                     }
                 }
 
-
-              }
+            }
             
         });
         gbc.gridx = 1;

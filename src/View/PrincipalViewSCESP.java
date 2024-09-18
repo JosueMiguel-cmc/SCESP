@@ -45,6 +45,7 @@ public class PrincipalViewSCESP extends JFrame{
 
         container.add( new CadastrarPessoa(this),"CadPessoas");
         container.add(new ListarPessoasView(this),"ListPessoas");
+        container.add(new SaidaPessoasView(this),"ExitePessoas");
         
         cardLayout.show(container,"CadPessoas");
 
@@ -82,12 +83,16 @@ public class PrincipalViewSCESP extends JFrame{
             }
             
         });
-        JButton btn3 = new JButton("botao3");
+        JButton btn3 = new JButton("Liberar Pessoa");
         container2.add(btn3);
-        JButton btn4 = new JButton("botao4");
-        container2.add(btn4);
-        JButton btn5 = new JButton("botao5");
-        container2.add(btn5);
+        btn3.addActionListener( new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               cardLayout.show(container,"ExitePessoas");
+            }
+            
+        });
 
         gbc.gridx = 2;
         gbc.gridy = 0;

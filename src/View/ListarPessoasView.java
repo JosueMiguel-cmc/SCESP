@@ -59,7 +59,7 @@ public class ListarPessoasView extends JPanel {
     private void atualizarLista(ArrayList<UsuarioVo> users) {
         listModel.clear(); 
         for (UsuarioVo u : users) {
-            listModel.addElement("Nome: " + u.getNome() + " | Idade: " + u.getIdade() + " | Gênero: " + u.getGenero() + " | Hora de entrada: " + u.getHoradeentrada());
+            listModel.addElement("Nome: " + u.getNome() + " | Idade: " + u.getIdade()+ " | Ocupação: " + u.getOcupação() + " | Gênero: " + u.getGenero() + " | Hora de entrada: " + u.getHoradeentrada());
         }
     }
 }
