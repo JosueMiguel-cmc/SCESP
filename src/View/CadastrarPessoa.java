@@ -69,7 +69,7 @@ public class CadastrarPessoa extends JPanel {
 
         // Label e Campo de Ocupação
         JLabel ocupacaoLabel = new JLabel("Ocupação:");
-        String[] ocupaçoes = {"Visitante","Funcionario"};
+        String[] ocupaçoes = {"Influencer digital","Funcionario","Jornalista","analista","convidado"};
         JComboBox<String> ocupaçaoCombo = new JComboBox<>(ocupaçoes);
         gbc.gridx = 0;
         gbc.gridy = 5;
@@ -80,6 +80,7 @@ public class CadastrarPessoa extends JPanel {
 
         // Botão de Salvar
         JButton salvarButton = new JButton("Salvar");
+        salvarButton.setBackground(Color.WHITE);
 
         salvarButton.addActionListener(new ActionListener() {
 
@@ -111,17 +112,19 @@ public class CadastrarPessoa extends JPanel {
                                 if (senha.equals("123456")) {
                                     System.out.println("salvo com sucesso");
                                     PVSCESP.getUsers().add(new UsuarioVo(nome, ocupaçao, genero, idade, horariodeentrada, null));
+                                    JOptionPane.showMessageDialog(null, "Funcionario registrado com sucesso");
                                     nomeField.setText(null);
                                     idadeField.setText(null);
                                 }
                             } else{
                                 System.out.println("salvo com sucesso");
                                     PVSCESP.getUsers().add(new UsuarioVo(nome, ocupaçao, genero, idade, horariodeentrada, null));
+                                    JOptionPane.showMessageDialog(null, "convidado registrado com sucesso"); 
                                     nomeField.setText(null);
                                     idadeField.setText(null);
                                 }
                     }else {
-                        JOptionPane.showMessageDialog(null, "o usuario deve ser maior de 18 anos");
+                        JOptionPane.showMessageDialog(null, "o convidado deve ser maior de 18 anos");
                         
                     }
                 }

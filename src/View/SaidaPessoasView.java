@@ -57,6 +57,7 @@ public class SaidaPessoasView extends JPanel {
         areacontrolePane.add(pesquisaField,areapanelgbc);
 
         JButton pesquisarbtn = new JButton("Pesquisar");
+        pesquisarbtn.setBackground(Color.WHITE);
         pesquisarbtn.setPreferredSize(new Dimension(100,30));
 
         areapanelgbc.gridx = 0;
@@ -65,6 +66,7 @@ public class SaidaPessoasView extends JPanel {
         areacontrolePane.add(pesquisarbtn,areapanelgbc);
 
         JButton liberarPessoa = new JButton("Liberar");
+        liberarPessoa.setBackground(Color.WHITE);
         liberarPessoa.setPreferredSize(new Dimension(100,30));
 
         areapanelgbc.gridx = 0;
@@ -86,6 +88,7 @@ public class SaidaPessoasView extends JPanel {
                     }
                     
                 });
+
         pesquisarbtn.addActionListener(new ActionListener() {
 
             @Override

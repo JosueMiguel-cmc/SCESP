@@ -61,9 +61,11 @@ public class PrincipalViewSCESP extends JFrame{
         
         JPanel container2 = new JPanel();
         container2.setLayout(new GridLayout(5,1));
+        container2.setBackground(Color.BLACK);
 
 
-        JButton btn1 = new JButton("Cadastrar Pessoa");
+        JButton btn1 = new JButton("Cadastrar Convidado");
+        btn1.setBackground(Color.WHITE);
         container2.add(btn1);
         btn1.addActionListener( new ActionListener() {
 
@@ -73,7 +75,8 @@ public class PrincipalViewSCESP extends JFrame{
             }
             
         });
-        JButton btn2 = new JButton("Listar Pessoar");
+        JButton btn2 = new JButton("Listar Convidados");
+        btn2.setBackground(Color.WHITE);
         container2.add(btn2);
         btn2.addActionListener( new ActionListener() {
 
@@ -83,7 +86,8 @@ public class PrincipalViewSCESP extends JFrame{
             }
             
         });
-        JButton btn3 = new JButton("Liberar Pessoa");
+        JButton btn3 = new JButton("Pesquisar / Liberar Pessoa");
+        btn3.setBackground(Color.WHITE);
         container2.add(btn3);
         btn3.addActionListener( new ActionListener() {
 

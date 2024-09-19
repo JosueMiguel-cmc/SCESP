@@ -40,6 +40,7 @@ public class ListarPessoasView extends JPanel {
 
        
         JButton atualizar = new JButton("Atualizar");
+        atualizar.setBackground(Color.WHITE);
         gbc.gridx = 1;
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.CENTER;
