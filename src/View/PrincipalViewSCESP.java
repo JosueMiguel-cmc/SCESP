@@ -64,7 +64,7 @@ public class PrincipalViewSCESP extends JFrame{
         container2.setBackground(Color.BLACK);
 
 
-        JButton btn1 = new JButton("Cadastrar Convidado");
+        JButton btn1 = new JButton("Registrar Convidado");
         btn1.setBackground(Color.WHITE);
         container2.add(btn1);
         btn1.addActionListener( new ActionListener() {

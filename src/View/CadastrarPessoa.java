@@ -24,7 +24,7 @@ public class CadastrarPessoa extends JPanel {
         areacadastro.setPreferredSize(new Dimension(350, 500)); // Tamanho do painel interno
         areacadastro.setLayout(new GridBagLayout()); // Usando GridBagLayout no painel interno
 
-        JLabel nometelaLabel = new JLabel("Cadastro");
+        JLabel nometelaLabel = new JLabel("Registro");
         Font fonte = new Font("Arial",Font.PLAIN,21);
         nometelaLabel.setFont(fonte);
         gbc.gridx = 0;
